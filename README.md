@@ -1,7 +1,7 @@
 # Synapse
 Synapse is a self-hosted, on-premises generative AI server designed for privacy, control, and performance. It provides an OpenAI-compatible API, allowing any application that works with the OpenAI API to seamlessly connect to open-source Large Language Models (LLMs) running on your own hardware.
 
-**Please note:** Synapse is an early-stages prototype whichs currently lacks any form of authentication or security and is only for research purposes. Do not implement this in a production environment without first hardening the server.
+**Please note:** Synapse is an early-stages prototype whichs currently lacks any form of authentication or security and is only for research purposes. Do not implement this in a production environment.
 
 ## Core Features
 - Privacy First: All models and data remain on your private server or cloud. No data is ever sent to third-party services.
