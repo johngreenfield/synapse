@@ -1,4 +1,4 @@
-# Nexus Synapse - The main LLM Server Application
+# Synapse - The main LLM Server Application
 import os
 import torch
 import time
@@ -28,7 +28,7 @@ tokenizer = None
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     global model, tokenizer
-    print("--- Starting Nexus Synapse LLM Server Node ---")
+    print("--- Starting Synapse LLM Server Node ---")
     print(f"Loading model: {MODEL_NAME} on device: {DEVICE}")
     try:
         tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
@@ -40,10 +40,10 @@ async def lifespan(app: FastAPI):
     
     yield
     
-    print("--- Shutting down Nexus Synapse LLM Server Node ---")
+    print("--- Shutting down Synapse LLM Server Node ---")
 
 # --- FastAPI Application ---
-app = FastAPI(title="Nexus Synapse - LLM Server", lifespan=lifespan)
+app = FastAPI(title="Synapse - LLM Server", lifespan=lifespan)
 
 # --- Pydantic Models ---
 class Message(BaseModel):

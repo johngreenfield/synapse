@@ -1,4 +1,4 @@
-# Nexus Synapse - Load Balancer
+# Synapse - Load Balancer
 # This application acts as a reverse proxy and load balancer for the
 # backend LLM server nodes. It distributes requests in a round-robin
 # fashion and performs health checks to ensure requests are only sent
@@ -56,7 +56,7 @@ async def lifespan(app: FastAPI):
     Handles startup events for the application.
     Performs an initial health check and starts the background health check task.
     """
-    print("--- Starting Nexus Synapse Load Balancer ---")
+    print("--- Starting Synapse Load Balancer ---")
     global healthy_servers, server_iterator
     initially_healthy = []
     async with aiohttp.ClientSession() as session:
@@ -76,10 +76,10 @@ async def lifespan(app: FastAPI):
     
     yield
     
-    print("--- Shutting down Nexus Synapse Load Balancer ---")
+    print("--- Shutting down Synapse Load Balancer ---")
 
 # --- FastAPI Application ---
-app = FastAPI(title="Nexus Synapse - Load Balancer", lifespan=lifespan)
+app = FastAPI(title="Synapse - Load Balancer", lifespan=lifespan)
 
 # --- Final Proxy Logic (Standard Non-Streaming Proxy) ---
 @app.api_route("/{path:path}", methods=["GET", "POST", "PUT", "DELETE"])
